@@ -1,11 +1,28 @@
-from django.shortcuts import render
+from django.shortcuts import render #type: ignore
 
 
-def blog(request):
+def blog(request): #type: ignore
     print('blog')
-    return render(request, 'blog/index.html')
+
+    context = {
+        'text': 'BLOG PAGE',
+        'title': 'Página de exemplo - '          
+               }
+
+    return render(
+        request, #type: ignore
+        'blog/index.html',
+        context,
+        )
 
 
-def exemplo(request):
+def exemplo(request):#type: ignore
     print('exemplo')
-    return render(request, 'blog/exemplo.html')
+
+    context = {'text': 'Olá, Exemplo'}
+
+    return render(
+            request, #type: ignore
+            'blog/exemplo.html',
+            context
+            )
